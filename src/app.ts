@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 
 import authRoutes from './routes/authRoutes';
+import usuarioRoutes from './routes/usuarioRoutes';
 
 class Server {
     private app: Application;
@@ -42,8 +43,11 @@ class Server {
 
 
     //Configura las rutas
-    routes() {
-        this.app.use("/", authRoutes);
+    routes(){
+        this.app.use('/', authRoutes),
+        this.app.use('/usuario', usuarioRoutes)
+        
+    
     }
 }
 
